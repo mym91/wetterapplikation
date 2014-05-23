@@ -32,7 +32,9 @@ function success(pos) {
 			sensor: true
 		},
 		success: function(data){
-			console.log(data);		
+			console.log(data);	
+			
+			jQuery(".js-address").text(data.results[0].formatted_address);	
 		}
 	});
 	
