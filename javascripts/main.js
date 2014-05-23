@@ -33,8 +33,8 @@ function success(pos) {
 		},
 		success: function(data){
 			console.log(data);	
-			
-			jQuery(".js-address").text(data.results[0].formatted_address);	
+			var firstAddress = data.results[0];
+			jQuery(".js-address").text(firstAddress.formatted_address);	
 		}
 	});
 	
