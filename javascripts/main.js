@@ -21,6 +21,9 @@ function success(pos) {
 			console.log(data);			
 		}
 	});
+	
+	
+  jQuery(".js-temp").text(data.currently.apparentTemperature+" °C");
 };
 
 function error(err) {
