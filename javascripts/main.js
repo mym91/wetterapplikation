@@ -20,7 +20,19 @@ function success(pos) {
 		success: function(data){
 			console.log(data);		
 			jQuery(".js-temp").text(data.currently.apparentTemperature+" °C");	
-			jQuery(".js-windspeed").text(data.currently.windSpeed+" m/s");	
+			jQuery(".js-windspeed").text(data.currently.windSpeed+" m/s");
+			jQuery('js-wheater-icon').addClass(data.currently.icon);	
+		}
+	});
+	
+	jQuery.ajax({
+		url: 'https://maps.googleapis.com/maps/api/geocode/output/json',
+		data:{
+			latlng: crd.latitude+','+crd.longitude,
+			sensor: true
+		},
+		success: function(data){
+			console.log(data);		
 		}
 	});
 	
