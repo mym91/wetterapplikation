@@ -10,6 +10,7 @@ function success(pos) {
   jQuery(".latitude").text(crd.latitude);
   jQuery(".longitude").text(crd.longitude);
   jQuery(".accuracy").text(crd.accuracy);
+  console.log(jQuery(".latitude"));
   console.log(crd);
 };
 
