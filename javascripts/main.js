@@ -21,7 +21,8 @@ function success(pos) {
 			console.log(data);		
 			jQuery(".js-temp").text(data.currently.apparentTemperature+" °C");	
 			jQuery(".js-windspeed").text(data.currently.windSpeed+" m/s");
-			jQuery('js-wheater-icon').addClass(data.currently.icon);	
+			jQuery('.js-wheater-icon').addClass(data.currently.icon);	
+		
 		}
 	});
 	
