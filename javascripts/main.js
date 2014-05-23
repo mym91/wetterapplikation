@@ -7,14 +7,12 @@ var options = {
 function success(pos) {
   var crd = pos.coords;
 
-  console.log('Your current position is:');
-  console.log('Latitude : ' + crd.latitude);
-  console.log('Longitude: ' + crd.longitude);
-  console.log('More or less ' + crd.accuracy + ' meters.');
+  jQuery(".latitude").text(crd.latitude);
+  jQuery(".longitude").text(crd.longitude);
+  jQuery(".accuracy").text(crd.accuracy);
 };
 
 function error(err) {
   console.warn('ERROR(' + err.code + '): ' + err.message);
 };
-
-alert (navigator.geolocation.getCurrentPosition(success, error, options));
+navigator.geolocation.getCurrentPosition(success, error, options);
