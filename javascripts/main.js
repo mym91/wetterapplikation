@@ -18,12 +18,12 @@ function success(pos) {
 			units: 'si'
 		},
 		success: function(data){
-			console.log(data);			
+			console.log(data);		
+			jQuery(".js-temp").text(data.currently.apparentTemperature+" °C");	
 		}
 	});
 	
 	
-  jQuery(".js-temp").text(data.currently.apparentTemperature+" °C");
 };
 
 function error(err) {
