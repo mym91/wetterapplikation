@@ -7,11 +7,9 @@ var options = {
 function success(pos) {
   var crd = pos.coords;
 
-  jQuery(".latitude").text(crd.latitude);
-  jQuery(".longitude").text(crd.longitude);
-  jQuery(".accuracy").text(crd.accuracy);
-  console.log(jQuery(".latitude"));
-  console.log(crd);
+  jQuery(".js-latitude").text(crd.latitude);
+  jQuery(".js-longitude").text(crd.longitude);
+  jQuery(".js-accuracy").text(crd.accuracy);
 };
 
 function error(err) {
