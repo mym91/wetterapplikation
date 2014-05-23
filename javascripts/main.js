@@ -9,10 +9,19 @@ function success(pos) {
 
   jQuery(".js-latitude").text(crd.latitude);
   jQuery(".js-longitude").text(crd.longitude);
-  jQuery(".js-accuracy").text(crd.accuracy);
+  jQuery(".js-accuracy").text(crd.accuracy+" m");
+  
+	jQuery.ajax({
+		url: 'https://api.forecast.io/forecast/9f6923aa30e557f8db747d39ae4fa19d',
+		success: function(data){
+			
+		}
+	});
 };
 
 function error(err) {
   console.warn('ERROR(' + err.code + '): ' + err.message);
 };
-navigator.geolocation.getCurrentPosition(success, error, options);
+jQuery(document).ready(function() {
+	navigator.geolocation.getCurrentPosition(success, error, options);  
+});
