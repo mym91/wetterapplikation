@@ -45,6 +45,24 @@ function success(pos) {
 function error(err) {
   console.warn('ERROR(' + err.code + '): ' + err.message);
 };
+
+function getSpecificLocation (street, number, zip, place, country) {
+	jQuery.ajax({
+		url: 'http://maps.googleapis.com/maps/api/geocode/json',
+		data:{
+			address: street+' '+number+' '+zip+' '+place+' '+country,
+			sensor: false
+		},
+		success: function(data){
+			console.log(data);	
+			/*
+			var firstAddress = data.results[0];
+			jQuery(".js-address").text(firstAddress.formatted_address);	
+			*/
+		}
+	});
+}
 jQuery(document).ready(function() {
+	getSpecificLocation ("Laufteggstrasse", "48", "9108", "jakobsbad", "switzerland");
 	navigator.geolocation.getCurrentPosition(success, error, options);  
 });
