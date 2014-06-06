@@ -11,20 +11,9 @@ function success(pos) {
   jQuery(".js-longitude").text(crd.longitude);
   jQuery(".js-accuracy").text(crd.accuracy+" m");
   
-	jQuery.ajax({
-		url: 'https://api.forecast.io/forecast/9f6923aa30e557f8db747d39ae4fa19d/'+crd.latitude+','+crd.longitude,
-		dataType: 'jsonp',
-		data: {
-			units: 'si'
-		},
-		success: function(data){
-			console.log(data);		
-			jQuery(".js-temp").text(data.currently.apparentTemperature+" °C");	
-			jQuery(".js-windspeed").text(data.currently.windSpeed+" m/s");
-			jQuery('.js-wheater-icon').addClass(data.currently.icon);	
-		
-		}
-	});
+  
+  getWeather (crd.longitude, crd.latitude);
+	
 	
 	jQuery.ajax({
 		url: 'https://maps.googleapis.com/maps/api/geocode/json',
@@ -48,7 +37,6 @@ function error(err) {
 
 function getSpecificLocation (street, number, zip, place, country) {
 	
-		console.log(street);
 	jQuery.ajax({
 		url: 'http://maps.googleapis.com/maps/api/geocode/json',
 		data:{
@@ -63,6 +51,24 @@ function getSpecificLocation (street, number, zip, place, country) {
 			*/
 		}
 	});
+}
+
+function getWeather (long, lat){
+	jQuery.ajax({
+		url: 'https://api.forecast.io/forecast/9f6923aa30e557f8db747d39ae4fa19d/'+lat+','+long,
+		dataType: 'jsonp',
+		data: {
+			units: 'si'
+		},
+		success: function(data){
+			console.log(data);		
+			jQuery(".js-temp").text(data.currently.apparentTemperature+" °C");	
+			jQuery(".js-windspeed").text(data.currently.windSpeed+" m/s");
+			jQuery('.js-wheater-icon').addClass(data.currently.icon);	
+		
+		}
+	});
+
 }
 jQuery(document).ready(function() {
 	jQuery("#submit-specific-address").on('click', 'a', function(){
