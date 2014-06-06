@@ -65,7 +65,7 @@ function getSpecificLocation (street, number, zip, place, country) {
 	});
 }
 jQuery(document).ready(function() {
-	jQuery("#submit").on('click', 'a', function(){
+	jQuery("#submit-specific-address").on('click', 'a', function(){
 		event.preventDefault();
 		getSpecificLocation (jQuery('#street').val(), jQuery('#number').val(), jQuery('#zip').val(), jQuery('#place').val(), jQuery('#country').val());
 		
