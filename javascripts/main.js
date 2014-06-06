@@ -45,12 +45,15 @@ function getSpecificLocation (street, number, zip, place, country) {
 		},
 		success: function(data){
 			console.log(data);	
-			/*
+			
 			var firstAddress = data.results[0];
 			jQuery(".js-address").text(firstAddress.formatted_address);	
-			*/
+			getWeather(firstAddress.geometry.location.long, firstAddress.geometry.location.lat);
+			
 		}
 	});
+	
+	
 }
 
 function getWeather (long, lat){
