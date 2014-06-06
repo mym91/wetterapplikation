@@ -57,6 +57,10 @@ function getSpecificLocation (street, number, zip, place, country) {
 }
 
 function getWeather (long, lat){
+	
+	console.log(long);
+	console.log(lat);
+	
 	jQuery.ajax({
 		url: 'https://api.forecast.io/forecast/9f6923aa30e557f8db747d39ae4fa19d/'+lat+','+long,
 		dataType: 'jsonp',
