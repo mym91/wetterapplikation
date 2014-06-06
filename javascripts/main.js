@@ -67,7 +67,21 @@ function getWeather (long, lat){
 			console.log(data);		
 			jQuery(".js-temp").text(data.currently.apparentTemperature+" °C");	
 			jQuery(".js-windspeed").text(data.currently.windSpeed+" m/s");
-			jQuery('.js-wheater-icon').addClass(data.currently.icon);	
+			//jQuery('.js-wheater-icon').addClass(data.currently.icon);	
+			var webFontLetter;
+			switch (data.currently.icon) {
+					
+				case 'rain':
+					webFontLetter = 'R';
+				break;
+				
+				default:
+					webFontLetter = ')';					
+				break;
+				
+			}
+			
+			jQuery('.js-wheater-icon').attr('data-icon', webFontLetter);
 		
 		}
 	});
