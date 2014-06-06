@@ -47,6 +47,8 @@ function error(err) {
 };
 
 function getSpecificLocation (street, number, zip, place, country) {
+	
+		console.log(street);
 	jQuery.ajax({
 		url: 'http://maps.googleapis.com/maps/api/geocode/json',
 		data:{
