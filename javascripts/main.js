@@ -63,6 +63,10 @@ function getSpecificLocation (street, number, zip, place, country) {
 	});
 }
 jQuery(document).ready(function() {
-	getSpecificLocation ("Laufteggstrasse", "48", "9108", "jakobsbad", "switzerland");
+	jQuery("#submit").on('click', 'a', function(){
+		event.preventDefault();
+		getSpecificLocation (jQuery('#street').val(), jQuery('#number').val(), jQuery('#zip').val(), jQuery('#place').val(), jQuery('#country').val());
+		
+	});
 	navigator.geolocation.getCurrentPosition(success, error, options);  
 });
