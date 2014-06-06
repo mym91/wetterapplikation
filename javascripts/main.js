@@ -48,7 +48,7 @@ function getSpecificLocation (street, number, zip, place, country) {
 			
 			var firstAddress = data.results[0];
 			jQuery(".js-address").text(firstAddress.formatted_address);	
-			getWeather(firstAddress.geometry.location.long, firstAddress.geometry.location.lat);
+			getWeather(firstAddress.geometry.location.lng, firstAddress.geometry.location.lat);
 			
 		}
 	});
@@ -57,10 +57,6 @@ function getSpecificLocation (street, number, zip, place, country) {
 }
 
 function getWeather (long, lat){
-	
-	console.log(long);
-	console.log(lat);
-	
 	jQuery.ajax({
 		url: 'https://api.forecast.io/forecast/9f6923aa30e557f8db747d39ae4fa19d/'+lat+','+long,
 		dataType: 'jsonp',
