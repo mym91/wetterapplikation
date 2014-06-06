@@ -70,9 +70,36 @@ function getWeather (long, lat){
 			//jQuery('.js-wheater-icon').addClass(data.currently.icon);	
 			var webFontLetter;
 			switch (data.currently.icon) {
-					
+				case 'clear-day':
+					webFontLetter = 'B';
+				break;
+				case 'clear-night':
+					webFontLetter = 'C';
+				break;
 				case 'rain':
 					webFontLetter = 'R';
+				break;
+				case 'snow':
+					webFontLetter = 'X';
+				break;
+				case 'sleet':
+					webFontLetter = 'W';
+				break;
+				case 'wind':
+					webFontLetter = 'F';
+				break;
+				case 'fog':
+					webFontLetter = 'M';
+				break;
+				
+				case 'cloudy':
+					webFontLetter = 'N';
+				break;
+				case 'partly-cloudy-day':
+					webFontLetter = 'H';
+				break;
+				case 'partly-cloudy-night':
+					webFontLetter = 'i';
 				break;
 				
 				default:
