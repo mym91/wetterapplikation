@@ -10,7 +10,7 @@
 
 }
 
-.icon:before {
+.js-wheater-icon:before {
 	font-family: 'MeteoconsRegular';
 	content: attr(data-icon);
 }
