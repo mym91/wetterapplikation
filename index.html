@@ -1,48 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Wetterapplikation</title>
-<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css">
+	<title>Wetter</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+	<script src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+	<script src="//code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 </head>
-
 <body>
-<h1>Meine Position</h1>
-<dl>
-    <dt>Longitude</dt>
-    <dd class="js-longitude"></dd>
-    <dt>Latitude</dt>
-    <dd class="js-latitude"></dd>
-    <dt>Accuracy</dt>
-    <dd class="js-accuracy"></dd>
-    <dt>Address</dt>
-    <dd class="js-address"></dd>
-    <dt>Current Temperature<span class="meteocons">* '</span></dt>
-    <dd class="js-temp"></dd>
-    <dt>Current Wind Speed<span class="meteocons">(</span></dt>
-    <dd class="js-windspeed"></dd>
-</dl>
-<div class="js-wheater-icon"></div>
 
-<div>
-<dl>
-    <dt><label for="street">Street</label></dt>
-    <dd><input type="text" id="street" name="street" /></dd>
-    <dt><label for="number">Number</label></dt>
-    <dd><input type="text" id="number" name="number" /></dd>
-    <dt><label for="zip">ZIP</label></dt>
-    <dd><input type="text" id="zip" name="zip" /></dd>
-    <dt><label for="place">Place</label></dt>
-    <dd><input type="text" id="place" name="place" /></dd>
-    <dt><label for="country">Country</label></dt>
-    <dd><input type="text" id="country" name="country" /></dd>
-</dl>
-<div id="submit-specific-address">
-<a href="#" id="submit" >Submit</a>
-</div>
-</div>
+<div data-role="page" id="main">
 
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-<script src="javascripts/main.js" ></script>
+	<div data-role="header">
+		<h1>Page Title</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>Page content goes here.</p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+<div data-role="page" id="main">
+
+	<div data-role="header">
+		<h1>Page Title</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>Page content goes here.</p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+<div data-role="page" id="custom">
+
+	<div data-role="header">
+		<h1>Page Title</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<p>Page content goes here.</p>
+	</div><!-- /content -->
+
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
 </body>
 </html>
