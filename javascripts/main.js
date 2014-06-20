@@ -129,9 +129,10 @@ jQuery(document).ready(function() {
 
 	});
 	
-	jQuery("#submit-settings").on('change', 'select#language', function(){
+	jQuery("#settings").on('change', 'select#language', function(){
 		localStorage['language'] = jQuery(this).val();
-		console.log(localStorage);
+		console.log(localStorage['language']);
 	});
+	
 	navigator.geolocation.getCurrentPosition(success, error, options);  
 });
