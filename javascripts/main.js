@@ -130,9 +130,9 @@ jQuery(document).ready(function() {
 	});
 	
 	jQuery(document).on('change', '#language', function(){
-		console.log(jQuery(this));
+	//	console.log(jQuery(this));
 		localStorage['language'] = jQuery(this).val();
-		console.log(localStorage['language']);
+	//	console.log(localStorage['language']);
 	});
 	
 	navigator.geolocation.getCurrentPosition(success, error, options);  
