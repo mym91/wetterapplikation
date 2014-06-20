@@ -1,5 +1,6 @@
 function success(pos) {
-  var crd = pos.coords;
+	// globale variable crd, da spaeter nochmals verwendet
+  window.crd = pos.coords;
 
   jQuery(".js-latitude").text(crd.latitude);
   jQuery(".js-longitude").text(crd.longitude);
@@ -14,7 +15,7 @@ function success(pos) {
 		data:{
 			latlng: crd.latitude+','+crd.longitude,
 			sensor: true,
-			language: 'de'
+			language: localStorage['language']
 		},
 		success: function(data){
 			console.log(data);	
@@ -37,7 +38,7 @@ function getSpecificLocation (street, number, zip, place, country) {
 		data:{
 			address: street+' '+number+' '+zip+' '+place+' '+country,
 			sensor: false,
-			language: 'de'
+			language: localStorage['language']
 		},
 		success: function(data){
 			console.log(data);	
@@ -125,7 +126,7 @@ jQuery(document).ready(function() {
 	});
 	
 	jQuery("#submit-settings").on('change', 'select#language', function(){
-		language = jQuery('#language').val();
+		localStorage['language'] = jQuery(this).val();
 	});
 	navigator.geolocation.getCurrentPosition(success, error, options);  
 });
