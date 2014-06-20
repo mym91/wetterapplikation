@@ -5,6 +5,8 @@ function getAddress(pos) {
 	localStorage.setItem('position', JSON.stringify(pos.coords)); 
   }
 
+console.log(pos);
+
   jQuery(".js-latitude").text(crd.latitude);
   jQuery(".js-longitude").text(crd.longitude);
   jQuery(".js-accuracy").text(crd.accuracy+" m");
