@@ -1,9 +1,9 @@
-function getAddress(pos) {
-
+function success(pos) {
 	console.log(pos);
   if (typeof pos !== 'undefined') {
 	localStorage.setItem('position', JSON.stringify(pos.coords)); 
   }
+  
   
   var crd = JSON.parse(localStorage.getItem('position'));
   
@@ -141,8 +141,8 @@ jQuery(document).ready(function() {
 	
 	jQuery(document).on('change', '#language', function(){
 		localStorage['language'] = jQuery(this).val();
-		getAddress();
+		success();
 	});
 	
-	navigator.geolocation.getCurrentPosition(getAddress, error, options);  
+	navigator.geolocation.getCurrentPosition(success, error, options);  
 });
