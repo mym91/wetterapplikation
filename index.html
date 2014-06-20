@@ -1,35 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Wetter</title>
-
-	<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
-	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="//code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+<title>Wetter</title>
+<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
 </head>
 <body>
-
 <div data-role="page" id="main">
+  <div data-role="panel" id="menu" data-display="overlay" data-position="right">
+    <ul>
+      <li>Current Location</li>
+      <li><a href="#custom">Custom Location</a></li>
+      <li><a href="#settings">Settings</a></li>
+    </ul>
+  </div>
+  <div data-role="header">
+    <h1>Current Location</h1>
+    <a href="#menu" class="ui-btn ui-btn-left ui-btn-inline ui-btn-icon-left ui-btn-icon-bars ui-alt-icon ui-btn-icon-notext ui-mini ui-corner-all ui-btn-icon-left ui-icon-nodisc">Menu</a> </div>
+  <!-- /header -->
+  
+  <div role="main" class="ui-content">
+    <dl>
+      <dt>Longitude</dt>
+      <dd class="js-longitude"></dd>
+      <dt>Latitude</dt>
+      <dd class="js-latitude"></dd>
+      <dt>Accuracy</dt>
+      <dd class="js-accuracy"></dd>
+      <dt>Address</dt>
+      <dd class="js-address"></dd>
+      <dt>Current Temperature<span class="meteocons">* '</span></dt>
+      <dd class="js-temp"></dd>
+      <dt>Current Wind Speed<span class="meteocons">(</span></dt>
+      <dd class="js-windspeed"></dd>
+    </dl>
+    <div class="js-wheater-icon"></div>
+  </div>
+  <!-- /content --> 
+  
+</div>
+<!-- /page -->
 
-	<div data-role="panel" id="menu" data-display="overlay" data-position="right">
-    	<ul>
-        	<li>Current Location</li>
-        	<li><a href="#custom">Custom Location</a></li>
-        	<li><a href="#settings">Settings</a></li>
-        </ul>   
-    </div>
-	<div data-role="header">
-		<h1>Current Location</h1>
-        <a href="#menu" class="ui-btn ui-btn-left ui-btn-inline ui-btn-icon-left ui-btn-icon-bars ui-alt-icon ui-btn-icon-notext ui-mini ui-corner-all ui-btn-icon-left ui-icon-nodisc">Menu</a>
-	</div><!-- /header -->
+<div data-role="page" id="custom">
+<div data-role="panel" id="menu" data-display="overlay" data-position="right">
+  <ul>
+    <li><a href="#main">Current Location</a></li>
+    <li>Custom Location</li>
+    <li><a href="#settings">Settings</a></li>
+  </ul>
+</div>
+<div data-role="header">
+  <h1>Custom Location</h1>
+  <a href="#menu" class="ui-btn ui-btn-left ui-btn-inline ui-btn-icon-left ui-btn-icon-bars ui-alt-icon ui-btn-icon-notext ui-mini ui-corner-all ui-btn-icon-left ui-icon-nodisc">Menu</a> </div>
+<!-- /header -->
 
-	<div role="main" class="ui-content">
-    
-    
-<dl>
+<div role="main" class="ui-content">
+  <dl>
     <dt>Longitude</dt>
     <dd class="js-longitude"></dd>
     <dt>Latitude</dt>
@@ -42,100 +71,79 @@
     <dd class="js-temp"></dd>
     <dt>Current Wind Speed<span class="meteocons">(</span></dt>
     <dd class="js-windspeed"></dd>
-</dl>
-<div class="js-wheater-icon"></div>
-    
-	</div><!-- /content -->
-
-</div><!-- /page -->
-
-<div data-role="page" id="custom">
-	<div data-role="panel" id="menu" data-display="overlay" data-position="right">
-    	<ul>
-        	<li><a href="#main">Current Location</a></li>
-        	<li>Custom Location</li>
-        	<li><a href="#settings">Settings</a></li>
-        </ul>   
-    </div>
-	<div data-role="header">
-		<h1>Custom Location</h1>
-        <a href="#menu" class="ui-btn ui-btn-left ui-btn-inline ui-btn-icon-left ui-btn-icon-bars ui-alt-icon ui-btn-icon-notext ui-mini ui-corner-all ui-btn-icon-left ui-icon-nodisc">Menu</a>
-	</div><!-- /header -->
-
-	<div role="main" class="ui-content">
-            
-        <dl>
-            <dt>Longitude</dt>
-            <dd class="js-longitude"></dd>
-            <dt>Latitude</dt>
-            <dd class="js-latitude"></dd>
-            <dt>Accuracy</dt>
-            <dd class="js-accuracy"></dd>
-            <dt>Address</dt>
-            <dd class="js-address"></dd>
-            <dt>Current Temperature<span class="meteocons">* '</span></dt>
-            <dd class="js-temp"></dd>
-            <dt>Current Wind Speed<span class="meteocons">(</span></dt>
-            <dd class="js-windspeed"></dd>
-        </dl>
-        <div class="js-wheater-icon"></div>
-        
-        <div>
-        <dl>
-            <dt><label for="street">Street</label></dt>
-            <dd><input type="text" id="street" name="street" /></dd>
-            <dt><label for="number">Number</label></dt>
-            <dd><input type="text" id="number" name="number" /></dd>
-            <dt><label for="zip">ZIP</label></dt>
-            <dd><input type="text" id="zip" name="zip" /></dd>
-            <dt><label for="place">Place</label></dt>
-            <dd><input type="text" id="place" name="place" /></dd>
-            <dt><label for="country">Country</label></dt>
-            <dd><input type="text" id="country" name="country" /></dd>
+  </dl>
+  <div class="js-wheater-icon"></div>
+  <div>
+    <dl>
+      <dt>
+        <label for="street">Street</label>
+      </dt>
+      <dd>
+        <input type="text" id="street" name="street" />
+      </dd>
+      <dt>
+        <label for="number">Number</label>
+      </dt>
+      <dd>
+        <input type="text" id="number" name="number" />
+      </dd>
+      <dt>
+        <label for="zip">ZIP</label>
+      </dt>
+      <dd>
+        <input type="text" id="zip" name="zip" />
+      </dd>
+      <dt>
+        <label for="place">Place</label>
+      </dt>
+      <dd>
+        <input type="text" id="place" name="place" />
+      </dd>
+      <dt>
+        <label for="country">Country</label>
+      </dt>
+      <dd>
+        <input type="text" id="country" name="country" />
+      </dd>
+    </dl>
+    <div id="submit-specific-address"> <a href="#" id="submit" >Submit</a> </div>
+  </div>
+  <!-- /content --> 
   
-        </dl>
-        <div id="submit-specific-address">
-        <a href="#" id="submit" >Submit</a>
-        </div>
-    
-	</div><!-- /content -->
-
-
-</div><!-- /page -->
+</div>
+<!-- /page -->
 <div data-role="page" id="settings">
-	<div data-role="panel" id="menu" data-display="overlay" data-position="right">
-    	<ul>
-        	<li><a href="#main">Current Location</a></li>
-        	<li><a href="#custom">Custom Location</a></li>
-        	<li>Settings</li>
-        </ul>   
-    </div>
-	<div data-role="header">
-		<h1>Custom Location</h1>
-        <a href="#menu" class="ui-btn ui-btn-left ui-btn-inline ui-btn-icon-left ui-btn-icon-bars ui-alt-icon ui-btn-icon-notext ui-mini ui-corner-all ui-btn-icon-left ui-icon-nodisc">Menu</a>
-	</div><!-- /header -->
-
-	<div role="main" class="ui-content">
-            
-      
-        
-        <div>
-        <dl>
-           
-            <dt><label for="language">Language</label></dt>
-            <dd><select name="language" size="1">
-                    <option value="de">Deutsch</option>
-                    <option value="en">English</option>
-                    <option value="fr">Fran&ccedil;ais</option>
-                    <option value="it">Italiano</option>
-               	</select>
-            </dd>
-        </dl>
-	</div><!-- /content -->
-
-
-</div><!-- /page -->
+  <div data-role="panel" id="menu" data-display="overlay" data-position="right">
+    <ul>
+      <li><a href="#main">Current Location</a></li>
+      <li><a href="#custom">Custom Location</a></li>
+      <li>Settings</li>
+    </ul>
+  </div>
+  <div data-role="header">
+    <h1>Settings</h1>
+    <a href="#menu" class="ui-btn ui-btn-left ui-btn-inline ui-btn-icon-left ui-btn-icon-bars ui-alt-icon ui-btn-icon-notext ui-mini ui-corner-all ui-btn-icon-left ui-icon-nodisc">Menu</a> </div>
+  <!-- /header -->
+  
+  <div role="main" class="ui-content">
+    <dl>
+      <dt>
+        <label for="language">Language</label>
+      </dt>
+      <dd>
+        <select name="language" size="1">
+          <option value="de">Deutsch</option>
+          <option value="en">English</option>
+          <option value="fr">Fran&ccedil;ais</option>
+          <option value="it">Italiano</option>
+        </select>
+      </dd>
+    </dl>
+  </div>
+  <!-- /content --> 
+  
+</div>
+<!-- /page --> 
 <script src="javascripts/main.js" ></script>
-
 </body>
 </html>
