@@ -1,9 +1,3 @@
-var options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
-};
-
 function success(pos) {
   var crd = pos.coords;
 
@@ -13,8 +7,8 @@ function success(pos) {
   
   
   getWeather (crd.longitude, crd.latitude);
-	
-	
+
+
 	jQuery.ajax({
 		url: 'https://maps.googleapis.com/maps/api/geocode/json',
 		data:{
@@ -28,8 +22,8 @@ function success(pos) {
 			jQuery(".js-address").text(firstAddress.formatted_address);	
 		}
 	});
-	
-	
+
+
 };
 
 function error(err) {
@@ -37,7 +31,7 @@ function error(err) {
 };
 
 function getSpecificLocation (street, number, zip, place, country) {
-	
+
 	jQuery.ajax({
 		url: 'http://maps.googleapis.com/maps/api/geocode/json',
 		data:{
@@ -47,15 +41,15 @@ function getSpecificLocation (street, number, zip, place, country) {
 		},
 		success: function(data){
 			console.log(data);	
-			
+
 			var firstAddress = data.results[0];
 			jQuery(".js-address").text(firstAddress.formatted_address);	
 			getWeather(firstAddress.geometry.location.lng, firstAddress.geometry.location.lat);
-			
+
 		}
 	});
-	
-	
+
+
 }
 
 function getWeather (long, lat){
@@ -93,7 +87,7 @@ function getWeather (long, lat){
 				case 'fog':
 					webFontLetter = 'M';
 				break;
-				
+
 				case 'cloudy':
 					webFontLetter = 'N';
 				break;
@@ -103,24 +97,35 @@ function getWeather (long, lat){
 				case 'partly-cloudy-night':
 					webFontLetter = 'i';
 				break;
-				
+
 				default:
 					webFontLetter = ')';					
 				break;
-				
+
 			}
-			
+
 			jQuery('.js-wheater-icon').attr('data-icon', webFontLetter);
-		
+
 		}
 	});
 
 }
 jQuery(document).ready(function() {
+	var options = {
+	  enableHighAccuracy: true,
+	  timeout: 5000,
+	  maximumAge: 0
+	};
+	
+	
 	jQuery("#submit-specific-address").on('click', 'a', function(){
 		event.preventDefault();
 		getSpecificLocation (jQuery('#street').val(), jQuery('#number').val(), jQuery('#zip').val(), jQuery('#place').val(), jQuery('#country').val());
-		
+
+	});
+	
+	jQuery("#submit-settings").on('change', 'select#language', function(){
+		language = jQuery('#language').val();
 	});
 	navigator.geolocation.getCurrentPosition(success, error, options);  
 });
