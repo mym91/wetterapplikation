@@ -18,6 +18,7 @@
     	<ul>
         	<li>Current Location</li>
         	<li><a href="#custom">Custom Location</a></li>
+        	<li><a href="#settings">Settings</a></li>
         </ul>   
     </div>
 	<div data-role="header">
@@ -53,6 +54,7 @@
     	<ul>
         	<li><a href="#main">Current Location</a></li>
         	<li>Custom Location</li>
+        	<li><a href="#settings">Settings</a></li>
         </ul>   
     </div>
 	<div data-role="header">
@@ -90,6 +92,44 @@
             <dd><input type="text" id="place" name="place" /></dd>
             <dt><label for="country">Country</label></dt>
             <dd><input type="text" id="country" name="country" /></dd>
+  
+        </dl>
+        <div id="submit-specific-address">
+        <a href="#" id="submit" >Submit</a>
+        </div>
+    
+	</div><!-- /content -->
+
+
+</div><!-- /page -->
+<div data-role="page" id="custom">
+	<div data-role="panel" id="menu" data-display="overlay" data-position="right">
+    	<ul>
+        	<li><a href="#main">Current Location</a></li>
+        	<li><a href="#custom">Custom Location</a></li>
+        	<li>Settings</li>
+        </ul>   
+    </div>
+	<div data-role="header">
+		<h1>Custom Location</h1>
+        <a href="#menu" class="ui-btn ui-btn-left ui-btn-inline ui-btn-icon-left ui-btn-icon-bars ui-alt-icon ui-btn-icon-notext ui-mini ui-corner-all ui-btn-icon-left ui-icon-nodisc">Menu</a>
+	</div><!-- /header -->
+
+	<div role="settings" class="ui-content">
+            
+      
+        
+        <div>
+        <dl>
+           
+            <dt><label for="language">Language</label></dt>
+            <dd><select name="language" size="1">
+                    <option value="de">Deutsch</option>
+                    <option value="en">English</option>
+                    <option value="fr">Fran&ccedil;ais</option>
+                    <option value="it">Italiano</option>
+               	</select>
+            </dd>
         </dl>
         <div id="submit-specific-address">
         <a href="#" id="submit" >Submit</a>
