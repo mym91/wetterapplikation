@@ -19,7 +19,8 @@ function success(pos) {
 		url: 'https://maps.googleapis.com/maps/api/geocode/json',
 		data:{
 			latlng: crd.latitude+','+crd.longitude,
-			sensor: true
+			sensor: true,
+			language: 'de'
 		},
 		success: function(data){
 			console.log(data);	
@@ -41,7 +42,8 @@ function getSpecificLocation (street, number, zip, place, country) {
 		url: 'http://maps.googleapis.com/maps/api/geocode/json',
 		data:{
 			address: street+' '+number+' '+zip+' '+place+' '+country,
-			sensor: false
+			sensor: false,
+			language: 'de'
 		},
 		success: function(data){
 			console.log(data);	
