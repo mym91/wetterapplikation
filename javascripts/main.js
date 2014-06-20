@@ -140,9 +140,7 @@ jQuery(document).ready(function() {
 	
 	jQuery(document).on('change', '#language', function(){
 		localStorage['language'] = jQuery(this).val();
-		var pos = JSON.parse(localStorage.getItem('position'));
-		getAddress(pos);
-	//	console.log(localStorage['language']);
+		getAddress();
 	});
 	
 	navigator.geolocation.getCurrentPosition(getAddress, error, options);  
