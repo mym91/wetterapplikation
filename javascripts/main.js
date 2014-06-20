@@ -1,4 +1,4 @@
-function success(pos) {
+function getAddress(pos) {
 	// globale variable crd, da spaeter nochmals verwendet
   if (typeof pos !== 'undefined') {
   	window.crd = pos.coords;
@@ -64,7 +64,6 @@ function getWeather (long, lat){
 			units: 'si'
 		},
 		success: function(data){
-			console.log(data);		
 			jQuery(".js-temp").text(data.currently.apparentTemperature+" °C");	
 			jQuery(".js-windspeed").text(data.currently.windSpeed+" m/s");
 			//jQuery('.js-wheater-icon').addClass(data.currently.icon);	
@@ -140,8 +139,10 @@ jQuery(document).ready(function() {
 	
 	jQuery(document).on('change', '#language', function(){
 		localStorage['language'] = jQuery(this).val();
+		var pos = JSON.parse(localStorage.getItem('position'));
+		getAddress(pos);
 	//	console.log(localStorage['language']);
 	});
 	
-	navigator.geolocation.getCurrentPosition(success, error, options);  
+	navigator.geolocation.getCurrentPosition(getAddress, error, options);  
 });
