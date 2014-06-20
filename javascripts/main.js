@@ -130,6 +130,7 @@ jQuery(document).ready(function() {
 	});
 	
 	jQuery("#settings").on('change', 'select#language', function(){
+		console.log(jQuery(this));
 		localStorage['language'] = jQuery(this).val();
 		console.log(localStorage['language']);
 	});
