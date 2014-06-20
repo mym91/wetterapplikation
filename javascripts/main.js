@@ -1,9 +1,8 @@
-function success(pos) {
+var getAddress =function(pos) {
 	console.log(pos);
   if (typeof pos !== 'undefined') {
 	localStorage.setItem('position', JSON.stringify(pos.coords)); 
   }
-  
   
   var crd = JSON.parse(localStorage.getItem('position'));
   
@@ -116,14 +115,16 @@ function getWeather (long, lat){
 
 }
 jQuery(document).ready(function() {
+	
+	
 	if(localStorage.getItem('language') === null){
 		localStorage.setItem('language','de');
 	} else {
-		jQuery('select#language').find('option[value="'+localStorage.getItem('language')+'"]').attr('selected','selected');
+		jQuery('select#language').val(localStorage.getItem('language'));
 	}
 	
 	if(localStorage.getItem('position') === null){
-		localStorage.setItem('language',null);
+		localStorage.setItem('position',null);
 	}
 	
 	var options = {
@@ -141,8 +142,8 @@ jQuery(document).ready(function() {
 	
 	jQuery(document).on('change', '#language', function(){
 		localStorage['language'] = jQuery(this).val();
-		success();
+		getAddress();
 	});
 	
-	navigator.geolocation.getCurrentPosition(success, error, options);  
+	navigator.geolocation.getCurrentPosition(getAddress, error, options);  
 });
