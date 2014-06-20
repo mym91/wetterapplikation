@@ -1,6 +1,9 @@
 function success(pos) {
 	// globale variable crd, da spaeter nochmals verwendet
-  window.crd = pos.coords;
+  if (typeof pos !== 'undefined') {
+  	window.crd = pos.coords;
+	localSotrage.setItem('position', JSON.stringify(pos.coords)); 
+  }
 
   jQuery(".js-latitude").text(crd.latitude);
   jQuery(".js-longitude").text(crd.longitude);
@@ -114,6 +117,12 @@ function getWeather (long, lat){
 jQuery(document).ready(function() {
 	if(localStorage.getItem('language') === null){
 		localStorage.setItem('language','de');
+	} else {
+		jQuery('select#language').find('option[value="'+localStorage.getItem('language')+'"]').attr('selected','selected');
+	}
+	
+	if(localStorage.getItem('position') === null){
+		localStorage.setItem('language',null);
 	}
 	
 	var options = {
@@ -130,7 +139,6 @@ jQuery(document).ready(function() {
 	});
 	
 	jQuery(document).on('change', '#language', function(){
-	//	console.log(jQuery(this));
 		localStorage['language'] = jQuery(this).val();
 	//	console.log(localStorage['language']);
 	});
