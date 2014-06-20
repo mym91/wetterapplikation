@@ -1,12 +1,11 @@
 function getAddress(pos) {
-	// globale variable crd, da spaeter nochmals verwendet
+
   if (typeof pos !== 'undefined') {
-  	window.crd = pos.coords;
 	localStorage.setItem('position', JSON.stringify(pos.coords)); 
   }
-
-console.log(pos);
-
+  
+  var crd = JSON.parse(localStorage.getItem('position'));
+  
   jQuery(".js-latitude").text(crd.latitude);
   jQuery(".js-longitude").text(crd.longitude);
   jQuery(".js-accuracy").text(crd.accuracy+" m");
