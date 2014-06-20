@@ -1,5 +1,6 @@
 function getAddress(pos) {
 
+	console.log(pos);
   if (typeof pos !== 'undefined') {
 	localStorage.setItem('position', JSON.stringify(pos.coords)); 
   }
