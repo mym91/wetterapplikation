@@ -112,6 +112,10 @@ function getWeather (long, lat){
 
 }
 jQuery(document).ready(function() {
+	if(localStorage.getItem('language') === null){
+		localStorage.setItem('language','de');
+	}
+	
 	var options = {
 	  enableHighAccuracy: true,
 	  timeout: 5000,
